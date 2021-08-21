@@ -71,23 +71,6 @@ class _NovoProdutoState extends State<NovoProduto> {
                 SizedBox(
                   height: 20,
                 ),
-                TextFormField(
-                  key: ValueKey('descricao'),
-                  autocorrect: true,
-                  validator: (value) => (value == null || value.isEmpty)
-                      ? 'O produto precisa possuir uma descrição'
-                      : null,
-                  onSaved: (newValue) => _formValues['descricao'] = newValue,
-                  decoration: InputDecoration(
-                    alignLabelWithHint: true,
-                    labelText: 'Descrição do produto',
-                    border: OutlineInputBorder(),
-                  ),
-                  maxLines: 8,
-                ),
-                SizedBox(
-                  height: 30,
-                ),
                 ElevatedButton.icon(
                   onPressed: () => _addProdutos(context),
                   icon: Icon(Icons.add_shopping_cart),
@@ -111,7 +94,6 @@ class _NovoProdutoState extends State<NovoProduto> {
           'user_id': userId,
           'titulo': _formValues['titulo'],
           'quantidade': _formValues['quantidade'],
-          'descricao': _formValues['descricao'],
         };
 
         SQLDatabase.insert('conta', produto);

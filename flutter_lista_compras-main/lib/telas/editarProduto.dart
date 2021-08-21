@@ -75,21 +75,6 @@ class _EditarProdutoState extends State<EditarProduto> {
                   SizedBox(
                     height: 20,
                   ),
-                  TextFormField(
-                    key: ValueKey('descricao'),
-                    initialValue: _formValues['descricao'],
-                    autocorrect: true,
-                    validator: (value) => (value == null || value.isEmpty)
-                        ? 'O produto precisa possuir uma descrição'
-                        : null,
-                    onSaved: (newValue) => _formValues['descricao'] = newValue,
-                    decoration: InputDecoration(
-                      alignLabelWithHint: true,
-                      labelText: 'Descrição do produto',
-                      border: OutlineInputBorder(),
-                    ),
-                    maxLines: 8,
-                  ),
                   ElevatedButton.icon(
                     onPressed: () => _salvarProdutoEditado(context),
                     icon: Icon(Icons.save),
@@ -115,7 +100,6 @@ class _EditarProdutoState extends State<EditarProduto> {
     var atualizarDB = {
       'titulo': _formValues['titulo'],
       'quantidade': _formValues['quantidade'],
-      'descricao': _formValues['descricao'],
     };
 
     await SQLDatabase.updateByID('conta', _formValues['id'], atualizarDB);

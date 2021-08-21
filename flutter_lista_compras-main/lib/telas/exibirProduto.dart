@@ -35,17 +35,6 @@ class _ExibirProdutoState extends State<ExibirProduto> {
                 SizedBox(
                   height: 60,
                 ),
-                Text(
-                  'Descrição do produto: ' + argumentos['descricao'],
-                  style: TextStyle(fontSize: 26),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  height: 360,
-                ),
                 ElevatedButton(
                     onPressed: () => _deletar(context, argumentos),
                     child: Text(
