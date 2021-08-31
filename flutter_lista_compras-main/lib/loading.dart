@@ -28,6 +28,7 @@ class _LoadingState extends State<Loading> {
   }
 
   Widget _login(context, List<Map<String, dynamic>>? rows) {
+    print("rows:" + rows.toString());
     // Pegando o valor salvo do ultimo ID de usuário
     loadUserID().then((userID) {
       // Verificando se o banco de dados existe
@@ -77,11 +78,7 @@ class _LoadingState extends State<Loading> {
     return rows;
   }
 
-  saveUserID(int id) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('user_id', id);
-  }
-
+// recebendo ID do suário
   Future<int> loadUserID() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getInt('user_id') ?? -1;
